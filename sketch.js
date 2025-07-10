@@ -1,11 +1,6 @@
 // REFERENCE: https://www.tate.org.uk/art/artworks/nake-no-title-p80809
 // No Title - 1967, Frieder Nake
-// funzione che permette ridimensionamento del canvas quando la finestra viene ridimensionata.
-function windowResized() { 
-    resizeCanvas(windowWidth, windowHeight);
-    redraw(); 
-    //Ridisegna il canvas dopo sul ridimensionamento.
-  }
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     noLoop();
@@ -17,13 +12,13 @@ function setup() {
 function draw() {
     background("#e8e6e4");
     let unitCount = 14; // N Righe == N colonne
-    
+
     // Il contenuto in cui sono stati disegnati gli elementi quadrati è composto da una griglia 14x14 di elementi quadrati della stessa dimensione. 
     // Tale struttura la si può notare ripetuta uguale anche nelle opere parte della stessa collezione. 
     // Il singolo elemento quadrato della griglia è stato poi modificato randomicamente per: dimensione, orientamento e colore. 
 
     // misurazioni dall'opera originale
-    let measuredContent = 880; 
+    let measuredContent = 880;
     let measuredMargin = 260;
     let measuredStroke = 9;
 
@@ -140,7 +135,7 @@ function drawSquare(col, row, unitSize, unitCount) {
     let contentMaxY = unitCount * unitSize - centerUnitY;
 
     // la dimensione massima è più piccola della unità
-    let squareSize = random(unitSize * 0.6, unitSize * 0.95); 
+    let squareSize = random(unitSize * 0.6, unitSize * 0.95);
     // coordinate dei punti del singolo quadratino 
     let a = -squareSize / 2;
     let b = a + squareSize;
@@ -249,3 +244,8 @@ function drawSquare(col, row, unitSize, unitCount) {
     pop();
 }
 
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+    redraw();
+}
